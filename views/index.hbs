@@ -1,0 +1,42 @@
+<h1>Hello {{name}}</h1>
+{{{subtitle}}}
+
+{{#if lastName}}
+  <h3>{{lastName}}</h3>
+{{else}}
+  <p>You have no lastName</p>
+{{/if}}
+
+{{#unless city}}
+  <p>You have to provide your city</p>
+{{else}}
+  <p>{{city}}</p>
+{{/unless}}
+
+<ul>
+  {{#each cities}}
+    <li>{{@index}} {{this.name}}</li>
+  {{else}}
+    <p>There are no cities</p>
+  {{/each}}
+</ul>
+
+<div>
+  {{#each beers as | beer |}}
+    <div>
+      <h4>{{beer.name}}</h4>
+      <p>{{beer.description}}</p>
+    </div>
+  {{/each}}
+</div>
+
+{{#each address}}
+  <p>{{@key}}: {{this}}</p>
+{{/each}}
+
+{{#with address}}
+  <p>The street is {{street}}</p>
+  <p>The number is {{number}}</p>
+{{/with}}
+
+{{> playerCard player }}
